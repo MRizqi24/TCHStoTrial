@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <div class="col">
+                        <div class="col">s
                             <div class="datatable datatable-primary">
                                 <div class="table-responsive">
                                     <table id="StokOpname-data" class="table table-striped table-hover" style="width:100%">
