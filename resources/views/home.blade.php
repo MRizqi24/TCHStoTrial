@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <div class="col">s
+                        <div class="col">
                             <div class="datatable datatable-primary">
                                 <div class="table-responsive">
                                     <table id="StokOpname-data" class="table table-striped table-hover" style="width:100%">
@@ -32,6 +32,7 @@
                                             <tr>
                                                 <th width="10%">Item Code</th>
                                                 <th width="20%" class="text-center">Part name</th>
+                                                <th width="20%" class="text-center">Part number</th>
                                                 <th width="10%">Type</th>
                                                 <th width="10%">Qty</th>
                                                 <th width="15%">Location</th>
@@ -88,6 +89,11 @@
                 <div class="form-group">
                     <label for="itemcode_input" class="col-form-label">Part Name</label>
                     <input class="form-control" name="partname_input" type="text" value="" id="partname_input">
+                </div>
+
+                <div class="form-group">
+                    <label for="partnumber_input" class="col-form-label">Part Number</label>
+                    <input class="form-control" name="partnumber_input" type="text" value="" id="partnumber_input">
                 </div>
 
                 <div class="form-group">
@@ -172,6 +178,11 @@
           className: "text-center",
         },
         {
+          data: 'part_number',
+          name: 'Type',
+          className: "text-center",
+        },
+        {
           data: 'type',
           name: 'type',
           className: "text-left",
@@ -203,11 +214,12 @@
             //validasi inputan tidak boleh kosong
             var Code = $('#itemcode_input').val();
             var partname_input = $('#partname_input').val();
+            var partnumber_input = $('#partnumber_input').val();
             var quantity_input = $('#quantity_input').val();
             var location_input = $('#location_input').val();
             var user_input = $('#user_input').val();
 
-            var condtion = !Code || !partname_input || !quantity_input || !location_input || !
+            var condtion = !Code || !partname_input || !partnumber_input || !quantity_input || !location_input || !
                 user_input;
             if (condtion) {
                 prompt.warn("Perhatikan Inputan anda, Form tidak boleh ada yang kosong!");
@@ -253,6 +265,7 @@
                         prompt.success("Data berhasil ditambahkan");
                         $('#itemcode_input').val("");
                         $('#partname_input').val("");
+                        $('#partnumber_input').val("");
                         $('#type_input').val("");
                         $('#quantity_input').val("");
                         $('#location_input').val("");

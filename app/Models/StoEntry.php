@@ -15,6 +15,7 @@ class StoEntry extends Model
     protected $fillable = [
         'item_code',
         'part_name',
+        'part_number',
         'type',
         'location',
         'qty',

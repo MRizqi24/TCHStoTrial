@@ -18,6 +18,7 @@ class HomeController extends Controller
         // dd($request);
         $itemcode_input = $request->itemcode_input;
         $partname_input = $request->partname_input;
+        $partnumber_input = $request->partnumber_input;
         $type_input = $request->type_input;
         $quantity_input= $request->quantity_input;
         $location_input = $request->location_input;
@@ -28,6 +29,7 @@ class HomeController extends Controller
         $data = array(
             'item_code' => $itemcode_input,
             'part_name' => $partname_input,
+            'part_number' => $partnumber_input,
             'type' => $type_input,
             'qty'=>$quantity_input,
             'location' =>  $location_input,
@@ -42,7 +44,7 @@ class HomeController extends Controller
 
     public function GetDataSto(Request $request){
         // dd($request);
-        $data =StoEntry::select('item_code', 'part_name', 'type', 'location','created_by', 'qty')
+        $data =StoEntry::select('item_code', 'part_name', 'part_number', 'type', 'location','created_by', 'qty')
     ->orderBy('created_date')
     ->get();
 
