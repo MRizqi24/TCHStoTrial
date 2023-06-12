@@ -37,8 +37,6 @@ Route::get('sto', [StoController::class, 'index'])->name('index_sto');
 Route::post('AddSto', [HomeController::class, 'AddSto'])->name('AddSto');
 Route::get('GetDataSto',[HomeController::class, 'GetDataSto'])->name('GetDataSto');
 
-Route::get('/STO/home', [InputStockController::class, 'index'])->name('input_stock');
 
-// Route::post('/dashboard/crud/store', [CrudController::class, 'store'])->name('crud_tambah');
-// Route::post('/dashboard/crud/{id}/update', [CrudController::class, 'update']);
-// Route::delete('/dashboard/crud/{id}/destroy', [CrudController::class, 'destroy']);
+
+

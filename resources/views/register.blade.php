@@ -37,6 +37,7 @@
                     <input type="text" name="role" class="form-control" value="Guest" readonly>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-user"></i> Register</button>
+
                 <hr>
                 <p class="text-center">Sudah punya akun silahkan <a href="/">Login Disini!</a></p>
             </form>

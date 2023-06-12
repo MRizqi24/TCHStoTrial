@@ -61,7 +61,7 @@
         <div class="card-body">
             <p class="text-muted font-14 mb-4">Masukkan data material .</p>
             <button type="button" id="button-scan-opname" class="btn btn-primary" data-toggle="modal" data-target="#cameraModal">
-                Buka Modal Kamera
+                Scan Kamera
             </button>
 
             <!--Modal scan-->
@@ -279,13 +279,16 @@
 
         //membuat fungsi scan qr code dengan kamera
         function cameraAction(cameraId) {
+            const formatsToSupport = [
+            Html5QrcodeSupportedFormats.QR_CODE,
+            Html5QrcodeSupportedFormats.CODE_39,
+            Html5QrcodeSupportedFormats.CODE_93,
+            Html5QrcodeSupportedFormats.CODE_128,
+            ];
             const html5QrCode = new Html5Qrcode(
                 /* element id */
                 "qr-reader",
-                /*scan type*/
-                {
-                    formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE]
-                }
+
             );
             prompt.inform("Kamera akan siap");
             const config = {
@@ -293,7 +296,8 @@
                 qrbox: {
                     width: 250,
                     height: 250
-                }
+                },
+                formatsToSupport: formatsToSupport
             }; //konfigurasi batas scan
             html5QrCode.start(
                     cameraId, config,
