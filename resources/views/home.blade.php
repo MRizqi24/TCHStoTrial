@@ -83,22 +83,22 @@
                 @method('POST')
                 <div class="form-group">
                     <label for="itemcode_input" class="col-form-label">Item Code</label>
-                    <input class="form-control" name="itemcode_input"type="text" value="" id="itemcode_input">
+                    <input class="form-control" name="itemcode_input"type="text" value="" id="itemcode_input" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="itemcode_input" class="col-form-label">Part Name</label>
-                    <input class="form-control" name="partname_input" type="text" value="" id="partname_input">
+                    <input class="form-control" name="partname_input" type="text" value="" id="partname_input" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="partnumber_input" class="col-form-label">Part Number</label>
-                    <input class="form-control" name="partnumber_input" type="text" value="" id="partnumber_input">
+                    <input class="form-control" name="partnumber_input" type="text" value="" id="partnumber_input" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="itemcode_input" class="col-form-label">Type</label>
-                    <input class="form-control" name="type_input" type="text" value="" id="type_input">
+                    <input class="form-control" name="type_input" type="text" value="" id="type_input" readonly>
                 </div>
 
                 <div class="form-group">
@@ -307,7 +307,26 @@
 
                             //data yang dihasilkan dari scan ada di variabel ini/data
                             var data = decodedText;
-                            prompt.inform(data);
+                            //mengganti spasi dengan tanda strip (-)
+                            data = data.replaceAll(" ", "-");
+                            //inisialisasi url
+                            var url = "{{route('SearcDataSto', ['itemcode' => '#itemcode'])}}";
+                            //mengganti data yang akan dibawa ke controller atau url
+                            url = url.replaceAll("#itemcode", data);
+                            //mengirim data sesuai dengan url dan data
+                            $.ajax({
+                                type: "GET",
+                                url: url,
+                                success: function(data) {
+                                    //menangkap data dan memasukkan ke textbox
+                                    $('#itemcode_input').val(data.ITEMCODE);
+                                    $('#partname_input').val(data.DESCRIPT);
+                                    $('#partnumber_input').val(data.PART_NO);
+                                    $('#type_input').val(data.DESCRIPT1);
+                                    prompt.success("Data berhasil discan");
+                                }
+                            });
+                            $("#modalScanWorkOrderView").modal("hide");
 
                         }).catch((err) => {
                             // Stop failed, handle it.

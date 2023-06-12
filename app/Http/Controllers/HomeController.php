@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\StoEntry;
+use App\Models\MasterItemCode;
 use DB;
 use Yajra\DataTables\Facades\DataTables;
 class HomeController extends Controller
@@ -54,7 +55,14 @@ class HomeController extends Controller
         return view('action', ['model' => $data]);
     })
     ->make(true);
+    }
 
-// dd($data);
+    public function SearchDataSto($itemcode){
+
+
+        $itemcode = str_replace("-"," ",$itemcode);
+        $item_code_result = MasterItemCode::select('ITEMCODE','DESCRIPT','DESCRIPT1','PART_NO')->where('BARCODE',$itemcode)->first();
+        return $item_code_result;
+
     }
 }

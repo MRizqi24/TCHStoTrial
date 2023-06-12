@@ -36,6 +36,7 @@ Route::get('sto', [StoController::class, 'index'])->name('index_sto');
 //create
 Route::post('AddSto', [HomeController::class, 'AddSto'])->name('AddSto');
 Route::get('GetDataSto',[HomeController::class, 'GetDataSto'])->name('GetDataSto');
+Route::get('SearchDataSto/{itemcode}',[HomeController::class, 'SearchDataSto'])->name('SearcDataSto');
 
 
 
