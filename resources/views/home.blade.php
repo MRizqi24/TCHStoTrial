@@ -37,6 +37,7 @@
                                                 <th width="10%">Qty</th>
                                                 <th width="15%">Location</th>
                                                 <th width="15%">User</th>
+                                                <th width="15%">Waktu</th>
                                                 <th width="10%">ACTION</th>
                                             </tr>
                                             </tr>
@@ -202,11 +203,19 @@
           name: 'user',
           className: "text-center",
         },
+
+        {
+          data: 'created_date',
+          name: 'Waktu',
+          className: "text-center",
+        },
+
         {
           data: 'action',
-          name: 'action'
-        }
-      ]
+          name: 'action',
+        },
+      ],
+      order: [[7, 'desc']] // Mengurutkan kolom ke-7 (waktu) secara descending
     });
     $('.modal-footer').on('click', '.submit', function() {
             // console.log(123);

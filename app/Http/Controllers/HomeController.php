@@ -27,6 +27,7 @@ class HomeController extends Controller
         $date = date('Y-m-d H:i:s');
         // dd($date);
         $status = "ACTIVE";
+        //insert stock opaname
         $data = array(
             'item_code' => $itemcode_input,
             'part_name' => $partname_input,
@@ -38,6 +39,15 @@ class HomeController extends Controller
             'created_by' =>  $user,
             'created_date' =>  $date
         );
+
+
+
+
+        //menambahkan nilai qty master item code
+        MasterItemCode::
+            where('ITEMCODE',$itemcode_input)
+            ->increment('OPNAME_QTY', $quantity_input);
+
         // dd($data);
         DB::table('stock_opname')->insert($data);
         return response()->json(['message' => 'Record created successfully.']);
@@ -45,7 +55,7 @@ class HomeController extends Controller
 
     public function GetDataSto(Request $request){
         // dd($request);
-        $data =StoEntry::select('item_code', 'part_name', 'part_number', 'type', 'location','created_by', 'qty')
+        $data =StoEntry::select('item_code', 'part_name', 'part_number', 'type', 'location','created_by', 'qty','created_date')
     ->orderBy('created_date')
     ->get();
 

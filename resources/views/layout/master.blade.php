@@ -67,8 +67,8 @@
                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 505px;"><div class="menu-inner" style="overflow: hidden; width: auto; height: 505px;">
                        <nav>
                            <ul class="metismenu" id="menu">
-                               <li  ><a href="" aria-expanded="false"><i class="fa fa-dashboard" style="color:white"></i> <span>Beranda</span></a></li>
-                               <li ><a href="{{route('index_sto')}}" aria-expanded="false"><i class="fa fa-file-text" style="color:white"></i> <span>Stock Opname</span></a></li>
+                               <li  ><a href="{{route('home')}}" aria-expanded="false"><i class="fa fa-dashboard" style="color:white"></i> <span>Beranda</span></a></li>
+                               <li ><a href="{{route('home')}}" aria-expanded="false"><i class="fa fa-file-text" style="color:white"></i> <span>Stock Opname</span></a></li>
 
                                    <li ><a href="" aria-expanded="false"><i class="fa fa-list-alt" style="color:white"></i> <span>Report Data</span></a></li>
 
