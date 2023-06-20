@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StoController;
+use App\Http\Controllers\ReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,14 @@ Route::get('sto', [StoController::class, 'index'])->name('index_sto');
 Route::post('AddSto', [HomeController::class, 'AddSto'])->name('AddSto');
 Route::get('GetDataSto',[HomeController::class, 'GetDataSto'])->name('GetDataSto');
 Route::get('SearchDataSto/{itemcode}',[HomeController::class, 'SearchDataSto'])->name('SearcDataSto');
+Route::get('Print_pdf/{id}',[HomeController::class, 'print_pdf'])->name('print_pdf');
 
 
+Route::get('GetMasterItemCode',[HomeController::class, 'GetMasterItemCode'])->name('GetMasterItemCode');
 
 
+// report
+Route::get('report', [ReportController::class, 'index'])->name('report');
+Route::post('checkData', [ReportController::class, 'checkData'])->name('checkData');
+
+// Route::get('sto{data}', [ReportController::class, 'checkData'])->name('checkData');

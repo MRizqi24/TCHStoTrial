@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+// use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 return [
 
@@ -141,6 +142,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -164,6 +166,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
+
 
 
         /*
@@ -195,6 +200,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // Other aliases
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'PDF' =>Barryvdh\DomPDF\Facade::class,
+
+
     ])->toArray(),
 
 

@@ -70,7 +70,7 @@
                                <li  ><a href="{{route('home')}}" aria-expanded="false"><i class="fa fa-dashboard" style="color:white"></i> <span>Beranda</span></a></li>
                                <li ><a href="{{route('home')}}" aria-expanded="false"><i class="fa fa-file-text" style="color:white"></i> <span>Stock Opname</span></a></li>
 
-                                   <li ><a href="" aria-expanded="false"><i class="fa fa-list-alt" style="color:white"></i> <span>Report Data</span></a></li>
+                                   <li ><a href="{{route('report')}}" aria-expanded="false"><i class="fa fa-list-alt" style="color:white"></i> <span>Report Data</span></a></li>
 
                            </ul>
                        </nav>

@@ -25,4 +25,5 @@ class StoEntry extends Model
         'update_date',
         'update_by'
     ];
+    public $timestamps = false;
 }
