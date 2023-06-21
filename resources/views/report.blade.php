@@ -54,6 +54,28 @@
 
         </div>
     </form>
+    <div class="card mt-5">
+        <div class="card-body">
+            <h4 class="header-title">Riwayat Import</h4>
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table id="StockOpname-data" class="display dataTable">
+                        <thead>
+                            <tr>
+                                <th width="10%">Item Code</th>
+                                <th width="20%" class="text-center">Part name</th>
+                                <th width="20%" class="text-center">Part number</th>
+                                <th width="10%">Type</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- create add --}}
+
     </div>
 </div>
 

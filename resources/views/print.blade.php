@@ -112,7 +112,7 @@
                 <tr>
 
                     <td colspan="2" class="centered description" style="width: 60px;">Part Number</td>
-                    <td colspan="2" class="centered description" style="word-wrap: break-word">{{$result->created_by}}</td>
+                    <td colspan="2" class="centered description" style="word-wrap: break-word">{{$result->part_number}}</td>
 
 
                 </tr>

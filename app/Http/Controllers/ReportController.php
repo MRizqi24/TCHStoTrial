@@ -67,7 +67,6 @@ class ReportController extends Controller
         //mendapatkan data user
         $name = Auth::user()->name ;
 
-
         return Excel::download(new ExportSTO($name), 'dasdas.xlsx');
 
     }
