@@ -48,4 +48,4 @@ Route::get('GetMasterItemCode',[HomeController::class, 'GetMasterItemCode'])->na
 Route::get('report', [ReportController::class, 'index'])->name('report');
 Route::post('checkData', [ReportController::class, 'checkData'])->name('checkData');
 
-// Route::get('sto{data}', [ReportController::class, 'checkData'])->name('checkData');
+Route::get('sto/{data}', [ReportController::class, 'reportexcel'])->name('reportexcel');

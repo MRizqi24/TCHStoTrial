@@ -45,7 +45,7 @@
                         class="fa-solid fa-file"></i></a>
                 &nbsp;&nbsp;&nbsp;
 
-                <a href="#" class="btn btn-success btn-sm download" id="download_daily_excel"
+                <a href="#" class="btn btn-success btn-sm download" id="download_all_daily_excel"
                     style="font-size: 16px; padding: 10px 20px;">Print All to Excel <i
                         class="fa-solid fa-file"></i></a>
                 &nbsp;&nbsp;&nbsp;
@@ -152,6 +152,7 @@
                     success: function(data) {
 
                         if (data.status == 200) {
+                            console.log(data);
                             // Open the PDF in a new tab
                             window.open('/sto/' + name + '_' + Type + '_' +
                                 from_date + '_' + to_date + '_' + type, '_blank');
