@@ -57,17 +57,7 @@ class ReportController extends Controller
     {
         $data = explode("_",$data);
 
-        $itemcode =$data[0];
-        $partname =$data[1];
-        $from_date =$data[2];
-        $to_date =$data[3];
-
-
-
-        //mendapatkan data user
-        $name = Auth::user()->name ;
-
-        return Excel::download(new ExportSTO($name), 'dasdas.xlsx');
+        return Excel::download(new ExportSTO($data), 'dasdas.xlsx');
 
     }
 }
