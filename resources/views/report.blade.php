@@ -40,14 +40,14 @@
                 </div>
             </div>
             <div class="col-md-6 mt-6 form-group">
-                <a href="#" class="btn btn-success btn-sm download" id="download_daily_excel"
+                <button class="btn btn-success btn-sm download" id="download_daily_excel"
                     style="font-size: 16px; padding: 10px 20px;">Print to Excel <i
-                        class="fa-solid fa-file"></i></a>
+                        class="fa-solid fa-file"></i></button   >
                 &nbsp;&nbsp;&nbsp;
 
-                <a href="#" class="btn btn-success btn-sm download" id="download_all_daily_excel"
+                <button class="btn btn-success btn-sm download" id="download_all_daily_excel"
                     style="font-size: 16px; padding: 10px 20px;">Print All to Excel <i
-                        class="fa-solid fa-file"></i></a>
+                        class="fa-solid fa-file"></i></button   >
                 &nbsp;&nbsp;&nbsp;
 
             </div>
@@ -172,7 +172,6 @@
                     dataType: 'json',
                     data: $('#report_sto').serialize(),
                     success: function(data) {
-
                         if (data.status == 200) {
                             console.log(data);
                             // Open the PDF in a new tab

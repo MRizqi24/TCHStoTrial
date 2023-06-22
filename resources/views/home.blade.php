@@ -106,6 +106,7 @@
         </div>
     </div>
     </form>
+
     {{-- Isi Form Input end --}}
 @endsection
 
@@ -360,8 +361,8 @@
                 "initComplete": function(settings, json) {
                     $('#search-part-name-table tbody').on('dblclick', 'tr', function() {
                         var dataArrWh = [];
-                        var rowsdatakaryawan = $(this);
-                        var rowData = part_name_table_history.rows(rowsdatakaryawan)
+                        var rowsdatamaterial = $(this);
+                        var rowData = part_name_table_history.rows(rowsdatamaterial)
                             .data();
                         $.each($(rowData), function(key, value) {
                             $('#itemcode_input').val(value["ITEMCODE"]);
