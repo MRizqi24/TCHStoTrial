@@ -45,6 +45,7 @@ class ExportSTO implements FromCollection
             ->whereBetween('created_date', [$from_date, $to_date])
             ->orderBy('created_date')
             ->get();
+
         } else { //jika user biasa hanya dapat export data sendiri
             return $data =StoEntry::
             where('item_code', '=', $item_code)
@@ -52,18 +53,6 @@ class ExportSTO implements FromCollection
             ->orderBy('created_date')
             ->get();
         }
-
-        // dd($data);
-        // return $data =StoEntry::
-        // where('created_by', '=', $name)
-        // ->orderBy('created_date')
-        // ->get();
-
-
-        // return $data =StoEntry::
-        // where('created_by',$this->item_code)
-        // ->orderBy('created_date')
-        // ->get();
 
     }
 }
