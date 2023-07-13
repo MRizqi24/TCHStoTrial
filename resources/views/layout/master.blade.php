@@ -1,50 +1,55 @@
-<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><head>
+<html
+    class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"
+    lang="en" style="">
+
     {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>@yield('title')</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="{{asset('assets/images/icon/favicon.png')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
-    {{-- <link rel="stylesheet" href="{{asset('assets')}}/css/themify-icons.css"> --}}
-    <link rel="stylesheet" href="{{asset('assets/css/metisMenu.css')}}">
-    {{-- <link rel="stylesheet" href="{{asset('assets')}}/css/owl.carousel.min.css"> --}}
-    <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}">
-    <!-- amchart css -->
-    {{-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"> --}}
-    <!-- others css -->
-    <link rel="stylesheet" href="{{asset('assets/css/typography.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/default-css.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
-    <!-- modernizr css -->
-    {{-- <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script> --}}
-    <!-- jquery latest version -->
-    <script src="{{asset('assets/js/vendor/jquery.js')}}"></script>
-    <!--promptjs-->
-    <link rel="stylesheet" href="{{asset('assets/js/vendor/promptjs/prompt.css')}}">
-    <script src="{{asset('assets/js/vendor/promptjs/prompt.js')}}"></script>
-    <!--datatables-->
-    <link rel="stylesheet" href="{{asset('assets/js/vendor/datatables/datatables.css')}}">
-    <script src="{{asset('assets/js/vendor/datatables/datatables.js')}}"></script>
-    <script src="{{asset('assets/js/vendor/datatables/dataTables.button.js')}}"></script>
 
-    <!-- Tippy js -->
-    <script src="{{asset('assets/js/vendor/tippy/popper.min.js')}}"></script>
-    <script src="{{asset('assets/js/vendor/tippy/tippy-bundle.umd.js')}}"></script>
-    <!--my javascript-->
-    <script src="{{asset('assets/js/myjavascript.js')}}"></script>
-    <!-- Select -->
-    <link rel="stylesheet" href="{{asset('assets/js/vendor/datatables/select.dataTables.min.css')}}"/>
-    <script src="{{asset('assets/js/vendor/datatables/dataTables.select.min.js')}}"></script>
-    <!--html5-qrcode-->
-    <!--https://blog.minhazav.dev/research/html5-qrcode-->
-    <script src="{{asset('assets/js/vendor/html5_qrcode/html5-qrcode.min.js')}}"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <title>@yield('title')</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/icon/favicon.png') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+        {{-- <link rel="stylesheet" href="{{asset('assets')}}/css/themify-icons.css"> --}}
+        <link rel="stylesheet" href="{{ asset('assets/css/metisMenu.css') }}">
+        {{-- <link rel="stylesheet" href="{{asset('assets')}}/css/owl.carousel.min.css"> --}}
+        <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}">
+        <!-- amchart css -->
+        {{-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"> --}}
+        <!-- others css -->
+        <link rel="stylesheet" href="{{ asset('assets/css/typography.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/default-css.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+        <!-- modernizr css -->
+        {{-- <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script> --}}
+        <!-- jquery latest version -->
+        <script src="{{ asset('assets/js/vendor/jquery.js') }}"></script>
+        <!--promptjs-->
+        <link rel="stylesheet" href="{{ asset('assets/js/vendor/promptjs/prompt.css') }}">
+        <script src="{{ asset('assets/js/vendor/promptjs/prompt.js') }}"></script>
+        <!--datatables-->
+        <link rel="stylesheet" href="{{ asset('assets/js/vendor/datatables/datatables.css') }}">
+        <script src="{{ asset('assets/js/vendor/datatables/datatables.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/datatables/dataTables.button.js') }}"></script>
+
+        <!-- Tippy js -->
+        <script src="{{ asset('assets/js/vendor/tippy/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/tippy/tippy-bundle.umd.js') }}"></script>
+        <!--my javascript-->
+        <script src="{{ asset('assets/js/myjavascript.js') }}"></script>
+        <!-- Select -->
+        <link rel="stylesheet" href="{{ asset('assets/js/vendor/datatables/select.dataTables.min.css') }}" />
+        <script src="{{ asset('assets/js/vendor/datatables/dataTables.select.min.js') }}"></script>
+        <!--html5-qrcode-->
+        <!--https://blog.minhazav.dev/research/html5-qrcode-->
 
 
-</head>
+    </head>
+
 <body>
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -54,31 +59,43 @@
     <!-- preloader area end -->
     <!-- page container area start -->
     <div class="page-container">
-           <!-- sidebar menu area start -->
-           {{-- @if ($navbar_mode != '1') --}}
-           <div class="sidebar-menu">
-               <div class="sidebar-header" style="background: white; padding:5px">
-                   <div class="logo">
-                       <a href="index.html"><img src="{{asset('assets')}}/images/icon/logo.png" alt="logo"></a>
-                       <p style="color:black;font-size: 15px; font-weight:800; margin-bottom:0px">PT TRIMITRA CHITRAHASTA</p>
-                   </div>
-               </div>
-               <div class="main-menu">
-                   <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 505px;"><div class="menu-inner" style="overflow: hidden; width: auto; height: 505px;">
-                       <nav>
-                           <ul class="metismenu" id="menu">
-                               <li  ><a href="{{route('home')}}" aria-expanded="false"><i class="fa fa-dashboard" style="color:white"></i> <span>Beranda</span></a></li>
-                               <li ><a href="{{route('home')}}" aria-expanded="false"><i class="fa fa-file-text" style="color:white"></i> <span>Stock Opname</span></a></li>
+        <!-- sidebar menu area start -->
+        {{-- @if ($navbar_mode != '1') --}}
+        <div class="sidebar-menu">
+            <div class="sidebar-header" style="background: white; padding:5px">
+                <div class="logo">
+                    <a href="index.html"><img src="{{ asset('assets') }}/images/icon/logo.png" alt="logo"></a>
+                    <p style="color:black;font-size: 15px; font-weight:800; margin-bottom:0px">PT TRIMITRA CHITRAHASTA
+                    </p>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 505px;">
+                    <div class="menu-inner" style="overflow: hidden; width: auto; height: 505px;">
+                        <nav>
+                            <ul class="metismenu" id="menu">
+                                <li><a href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-dashboard"
+                                            style="color:white"></i> <span>Beranda</span></a></li>
+                                <li><a href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-file-text"
+                                            style="color:white"></i> <span>Stock Opname</span></a></li>
 
-                                   <li ><a href="{{route('report')}}" aria-expanded="false"><i class="fa fa-list-alt" style="color:white"></i> <span>Report Data</span></a></li>
+                                <li><a href="{{ route('report') }}" aria-expanded="false"><i class="fa fa-list-alt"
+                                            style="color:white"></i> <span>Report Data</span></a></li>
 
-                           </ul>
-                       </nav>
-                   </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 64px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 505px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-               </div>
-           </div>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="slimScrollBar"
+                        style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 64px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 505px;">
+                    </div>
+                    <div class="slimScrollRail"
+                        style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-           <!-- sidebar menu area end -->
+        <!-- sidebar menu area end -->
 
         <!-- main content area start -->
         <div class="main-content" style="min-height: 780px;">
@@ -117,11 +134,12 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}} <i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }} <i
+                                    class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
                                 <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="{{route('actionlogout')}}">Log Out</a>
+                                <a class="dropdown-item" href="{{ route('actionlogout') }}">Log Out</a>
                             </div>
                         </div>
                     </div>
@@ -136,7 +154,8 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+                <p>© Copyright 2023. PT Trimitra Chitrahasta. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                </p>
             </div>
         </footer>
         <!-- footer area end-->
@@ -320,46 +339,49 @@
         </div> --}}
     </div>
     <!-- offset area end -->
+    <script src="{{ asset('assets/js/vendor/html5_qrcode/html5-qrcode.min.js') }}"></script>
 
     <!-- bootstrap 4 js -->
-    <script src="{{asset('assets')}}/js/popper.min.js"></script>
-    <script src="{{asset('assets')}}/js/bootstrap.min.js"></script>
-    <script src="{{asset('assets')}}/js/owl.carousel.min.js"></script>
-    <script src="{{asset('assets')}}/js/metisMenu.min.js"></script>
-    <script src="{{asset('assets')}}/js/jquery.slimscroll.min.js"></script>
-    <script src="{{asset('assets')}}/js/jquery.slicknav.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets') }}/js/owl.carousel.min.js"></script>
+    <script src="{{ asset('assets') }}/js/metisMenu.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery.slimscroll.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery.slicknav.min.js"></script>
 
     <!-- others plugins -->
-    <script src="{{asset('assets')}}/js/plugins.js"></script>
-    <script src="{{asset('assets')}}/js/scripts.js"></script>
+    <script src="{{ asset('assets') }}/js/plugins.js"></script>
+    <script src="{{ asset('assets') }}/js/scripts.js"></script>
     <script>
         //$(document).ready(function(){
 
 
-            // $(".badge-light").hide();
-            // @if (session('role') !== '')
-            //     myMethod();
-            //     setInterval(myMethod, 3000);
+        // $(".badge-light").hide();
+        // @if (session('role') !== '')
+        //     myMethod();
+        //     setInterval(myMethod, 3000);
 
-            //     function myMethod(){
-            //         $.ajax({ //update jumlah persetujuan
-            //             type: "GET",
-            //             url: "/agreement/count",
+        //     function myMethod(){
+        //         $.ajax({ //update jumlah persetujuan
+        //             type: "GET",
+        //             url: "/agreement/count",
 
-            //             success: function(data){
-            //                 data = $.parseJSON(data);
-            //                 if(data === 0){
-            //                     $(".badge-light").hide();
-            //                 }else{
-            //                     $(".badge-light").text(data);
-            //                     $(".badge-light").show();
-            //                 }
-            //             }
-            //         });
-            //     }
-            // @endif
+        //             success: function(data){
+        //                 data = $.parseJSON(data);
+        //                 if(data === 0){
+        //                     $(".badge-light").hide();
+        //                 }else{
+        //                     $(".badge-light").text(data);
+        //                     $(".badge-light").show();
+        //                 }
+        //             }
+        //         });
+        //     }
+        // @endif
         //});
     </script>
 
 
-</body></html>
+</body>
+
+</html>

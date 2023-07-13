@@ -12,6 +12,13 @@
     <div class="card mt-5">
         <div class="card-body">
             <h4 class="header-title">Riwayat Submit</h4>
+
+            {{-- kasih button --}}
+            <button class="btn btn-success btn-sm" onclick="download_excel_()"
+                style="font-size: 16px; padding: 10px 20px;">Print to Excel <i
+                class="fa-solid fa-file"></i></button>
+            <br>
+            <br>
             <div class="single-table">
                 <div class="table-responsive">
                     <table id="StockOpname-data" class="display dataTable">
@@ -22,7 +29,10 @@
                                 <th width="20%" class="text-center">Part number</th>
                                 <th width="10%">Type</th>
                                 <th width="10%">Qty</th>
+                                <th width="10%">No Tag</th>
                                 <th width="15%">Location</th>
+                                <th width="15%">Gudang</th>
+                                <th width="15%">Keterangan</th>
                                 <th width="15%">User</th>
                                 <th width="15%">Tanggal dan Waktu</th>
                                 <th width="10%">ACTION</th>
@@ -89,11 +99,31 @@
                     <label for="quantity_input" class="col-form-label">Quantity</label>
                     <input class="form-control" name="quantity_input" type="number" value="" id="quantity_input">
                 </div>
+                {{-- new --}}
+                <div class="form-group">
+                    <label class="col-form-label">No Tag</label>
+                    <input class="form-control" name="no_tag_input" type="text" value="" id="no_tag_input" readonly>
+                </div>
 
                 <div class="form-group">
                     <label for="location_input" class="col-form-label">Location</label>
                     <input class="form-control" name="location_input" type="text" value="" id="location_input">
                 </div>
+                {{-- new --}}
+                <div class="form-group">
+                    <label class="col-form-label">Gudang</label>
+                    <select class="form-control" id="gudang_input" name="gudang_input">
+                        <option value="">--pilih--</option>
+                        <option value="90">90</option>
+                        <option value="92">92</option>
+                      </select>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Keterangan</label>
+                    <input class="form-control" name="keterangan_input" type="text" value="" id="keterangan_input">
+                </div>
+
                 <div class="form-group">
                     <label for="location_input" class="col-form-label">User</label>
                     <input class="form-control" name="user"type="text" value="{{ Auth::user()->name }}"
@@ -144,7 +174,19 @@
             prompt.inform("Tunggu...");
         });
         var table = $('#StockOpname-data').DataTable({
+            dom: "<'row'<'col-sm-6 mb-3'B><'col-sm-3'l><'col-sm-3'f>>rtip",
             pageLength: 5,
+            // buttons: [
+            //     {
+            //         text: '<i class="fa fa-file-excel-o">&nbsp; </i> Export excel',
+            //         className: "btn btn-sm btn-primary mb-3",
+            //         action: function () {
+            //             //export semua excel
+            //             var type ="excelall"
+            //             window.open('/sto/'+ type, '_blank');
+            //         }
+            //     },
+            // ],
             lengthMenu: [5, 10, 20, 50, 100, 200, 500],
             serverside: true,
             responsive: true,
@@ -177,8 +219,23 @@
                     className: "text-center",
                 },
                 {
+                    data: 'no_tag',
+                    name: 'no_tag',
+                    className: "text-center",
+                },
+                {
                     data: 'location',
                     name: 'location',
+                    className: "text-center",
+                },
+                {
+                    data: 'gudang',
+                    name: 'gudang',
+                    className: "text-center",
+                },
+                {
+                    data: 'keterangan',
+                    name: 'keterangan',
                     className: "text-center",
                 },
                 {
@@ -212,10 +269,12 @@
             var quantity_input = $('#quantity_input').val();
             var location_input = $('#location_input').val();
             var user_input = $('#user_input').val();
+            var no_tag_input = $('#no_tag_input').val();
+            var gudang_input = $('#gudang_input').val();
+            var keterangan_input = $('#keterangan_input').val();
 
             var condtion = !Code || !partname_input || !partnumber_input || !quantity_input || !
-                location_input || !
-                user_input;
+                location_input || !user_input || !no_tag_input || !gudang_input || !keterangan_input;
             if (condtion) {
                 prompt.warn("Perhatikan Inputan anda, Form tidak boleh ada yang kosong!");
                 // Swal.fire({
@@ -236,7 +295,7 @@
                     data: $('#create-stokopname').serialize(),
                     dataType: 'json',
                     success: function(data) {
-                        alert(data)
+                        // alert(data)
 
                         prompt.success("Data berhasil ditambahkan");
                         $('#itemcode_input').val("");
@@ -245,10 +304,14 @@
                         $('#type_input').val("");
                         $('#quantity_input').val("");
                         $('#location_input').val("");
+                        $('#no_tag_input').val("");
+                        $('#gudang_input').val("");
+                        $('#keterangan_input').val("");
                         $('#StockOpname-data').DataTable().ajax.reload();
                         // work_order_number = work_order_number.replaceAll("/","-")
                         var url = "{{ route('print_pdf', ['id' => '#id']) }}";
                         var url1 = url.replace("#id", data);
+                        console.log(url1);
                         alert(url1);
 
                         window.open(url1, '_blank');
@@ -263,13 +326,14 @@
         function cameraAction(cameraId) {
             const formatsToSupport = [
                 Html5QrcodeSupportedFormats.QR_CODE,
+                Html5QrcodeSupportedFormats.RSS_14,
                 Html5QrcodeSupportedFormats.CODE_39,
                 Html5QrcodeSupportedFormats.CODE_93,
-                Html5QrcodeSupportedFormats.CODE_128,
+                Html5QrcodeSupportedFormats.CODE_128
             ];
             const html5QrCode = new Html5Qrcode(
                 /* element id */
-                "qr-reader",
+                "qr-reader"
 
             );
             prompt.inform("Kamera akan siap");
@@ -286,7 +350,6 @@
                     (decodedText, decodedResult) => {
                         html5QrCode.stop().then((ignore) => {
                             // QR Code scanning is stopped.
-
                             //data yang dihasilkan dari scan ada di variabel ini/data
                             var data = decodedText;
                             //mengganti spasi dengan tanda strip (-)
@@ -295,16 +358,19 @@
                             var url = "{{ route('SearcDataSto', ['itemcode' => '#itemcode']) }}";
                             //mengganti data yang akan dibawa ke controller atau url
                             url = url.replaceAll("#itemcode", data);
+
                             //mengirim data sesuai dengan url dan data
                             $.ajax({
                                 type: "GET",
                                 url: url,
                                 success: function(data) {
+                                    console.log(data);
                                     //menangkap data dan memasukkan ke textbox
                                     $('#itemcode_input').val(data.ITEMCODE);
                                     $('#partname_input').val(data.DESCRIPT);
                                     $('#partnumber_input').val(data.PART_NO);
                                     $('#type_input').val(data.DESCRIPT1);
+                                    $('#no_tag').val(data.NO_TAG);
                                     prompt.success("Data berhasil discan");
                                 }
                             });
@@ -355,6 +421,9 @@
                     {
                         "data": "DESCRIPT1"
                     },
+                    {
+                        "data": "NO_TAG"
+                    },
 
                 ],
                 "bDestroy": true,
@@ -369,6 +438,7 @@
                             $('#partname_input').val(value["DESCRIPT"]);
                             $('#partnumber_input').val(value["PART_NO"]);
                             $('#type_input').val(value["DESCRIPT1"]);
+                            $('#no_tag_input').val(value["NO_TAG"]);
 
                             $('#modalSearchPartName').modal('hide');
                         });
@@ -379,4 +449,40 @@
             $('div.toolbar').html('<b style="color:red">Klik 2x pada baris untuk memilih</b>');
         });
     });
+
+        function download_excel_(){
+
+            // alert('masuk');
+            $.ajax({
+                url: "{{ route('checkDatax') }}",
+                type: "POST",
+                dataType: 'json',
+                // data: $('#report_sto').serialize(),
+                data: $('#create-stokopname').serialize(),
+                success: function(data) {
+                    if (data.status == 200) {
+                        console.log(data.role);
+                        role = data.role;
+                        data = data.data;
+                        // alert('ada');
+
+                        // Open the PDF in a new tab
+                        var url = "{{ route('print_pdf', ['id' => '#id']) }}";
+                        var url1 = url.replace("#id", data);
+                        window.open('/sto_export/' + role + '_' + data + '_' + 'excel', '_blank');
+
+                        // Reload the page
+                        // location.reload();
+
+                    } else {
+                       alert('data kosong');
+                    }
+                },
+            })
+        }
+
+
+
+
+
 </script>

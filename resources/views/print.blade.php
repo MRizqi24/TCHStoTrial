@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Barcode Work Order</title>
+    <title>QR StockOpname</title>
     <style type="text/css">
       * {
             font-size: 12px;

@@ -17,6 +17,7 @@
                                     <th>Nama Part</th>
                                     <th>Nomor Part</th>
                                     <th>Type</th>
+                                    <th>No Tag</th>
                                 </tr>
                             </thead>
 

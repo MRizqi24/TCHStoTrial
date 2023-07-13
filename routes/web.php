@@ -41,7 +41,11 @@ Route::get('SearchDataSto/{itemcode}',[HomeController::class, 'SearchDataSto'])-
 Route::get('Print_pdf/{id}',[HomeController::class, 'print_pdf'])->name('print_pdf');
 
 
+
 Route::get('GetMasterItemCode',[HomeController::class, 'GetMasterItemCode'])->name('GetMasterItemCode');
+Route::post('checkDatax', [HomeController::class, 'checkData'])->name('checkDatax');
+Route::post('checkDataSto', [HomeController::class, 'checkData_sto'])->name('checkDataSto');
+Route::get('sto_export/{data}', [HomeController::class, 'reportexcel'])->name('reportexcelNew');
 
 
 // report
@@ -49,3 +53,4 @@ Route::get('report', [ReportController::class, 'index'])->name('report');
 Route::post('checkData', [ReportController::class, 'checkData'])->name('checkData');
 
 Route::get('sto/{data}', [ReportController::class, 'reportexcel'])->name('reportexcel');
+Route::get('stoExcelAll/{data}', [ReportController::class, 'reportexcelall'])->name('reportexcelall');

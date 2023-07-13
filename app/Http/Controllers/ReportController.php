@@ -24,7 +24,10 @@ class ReportController extends Controller
         $partname = $request->partname_input;
         $from_date = $request->From_Date;
         $to_date = $request->To_Date;
-        // dd($request);
+
+        // $auth = Auth::user()->name;
+        // $role = Auth::user()->role;
+        // dd($role);
         // $data = StoEntry::where('item_code', '=', $itemcode)
         // ->select('item_code')
 
@@ -43,6 +46,7 @@ class ReportController extends Controller
             // ->when($type != "", function ($q) use ($type) {
             //     $q->where('type_machine', '=', $type);
             // })
+
             ->whereBetween('created_date', [$from_date, $to_date])
             ->orderBy('created_date', 'ASC')
             ->get();
@@ -57,7 +61,12 @@ class ReportController extends Controller
     {
         $data = explode("_",$data);
 
-        return Excel::download(new ExportSTO($data), 'dasdas.xlsx');
+        return Excel::download(new ExportSTO($data), 'DataStockOpname.xlsx');
 
+    }
+
+    public function reportexcelall($data)
+    {
+        return Excel::download(new ExportSTO($data), 'Report_All_Data.xlsx');
     }
 }

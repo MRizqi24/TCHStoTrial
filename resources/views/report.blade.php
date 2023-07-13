@@ -40,16 +40,17 @@
                             <input class="form-control" name="To_Date" type="date" value="" id="To_Date">
                         </div>
                     </div>
-                    <div class="col-md-6 mt-6 form-group">
+                    <br>
+                    <div class="col-md-11 mt-6 form-group">
                         <button class="btn btn-success btn-sm download" id="download_daily_excel"
-                            style="font-size: 16px; padding: 10px 20px;">Print to Excel <i
-                                class="fa-solid fa-file"></i></button>
+                        style="font-size: 16px; padding: 10px 20px;">Print to Excel <i
+                        class="fa-solid fa-file"></i></button>
                         &nbsp;&nbsp;&nbsp;
 
-                        <button class="btn btn-success btn-sm download" id="download_all_daily_excel"
-                            style="font-size: 16px; padding: 10px 20px;">Print All to Excel <i
-                                class="fa-solid fa-file"></i></button>
-                        &nbsp;&nbsp;&nbsp;
+                        {{-- <button class="btn btn-success btn-sm download" id="download_all_daily_excel"
+                        style="font-size: 16px; padding: 10px 20px;">Print All to Excel <i
+                        class="fa-solid fa-file"></i></button>
+                        &nbsp;&nbsp;&nbsp; --}}
 
                     </div>
 
@@ -173,34 +174,38 @@
             });
         });
 
-        $(document).ready(function() {
+        // $(document).ready(function() {
 
             $('#download_daily_excel').on('click', function() {
-                cekdata('excel');
-            });
+                // cekdata('excel');
 
-            function cekdata(type) {
+
+            // function cekdata(type) {
+                // alert('ttt');
                 var name = document.getElementById('itemcode_input').value;
                 var Type = document.getElementById('partname_input').value;
                 var from_date = document.getElementById('From_Date').value;
                 var to_date = document.getElementById('To_Date').value;
+                type = 'excel';
 
-
-
-                if (name != "" && Type != "" && from_date != "" && to_date != "") {
+                if (name != "" || Type != "" || from_date != "" || to_date != "") {
                     $.ajax({
                         url: "{{ route('checkData') }}",
                         type: "POST",
                         dataType: 'json',
                         data: $('#report_sto').serialize(),
                         success: function(data) {
+                            alert('masuuukk');
                             if (data.status == 200) {
-                                console.log(data);
+                                // console.log(data);
+
                                 // Open the PDF in a new tab
-                                window.open('/sto/' + name + '_' + Type + '_' +
-                                    from_date + '_' + to_date + '_' + type, '_blank');
+                                // window.open('/sto/' + name + '_' + Type + '_' +
+                                //     from_date + '_' + to_date + '_' + type, '_blank');
+
                                 // Reload the page
-                                location.reload();
+                                // location.reload();
+
                             } else {
                                 // Swal.fire({
                                 //     icon: 'error',
@@ -209,15 +214,22 @@
                                 // });
                             }
                         },
+                        error: function(data) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Warning!',
+                                text: 'form cannot be empty!!',
+                            });
+                        }
                     })
                 } else {
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Warning!',
-                    //     text: 'form cannot be empty!!',
-                    // });
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Warning!',
+                        text: 'form cannot be empty!!',
+                    });
                 }
-            }
-        });
+            });
+        // });
     </script>
 @endsection

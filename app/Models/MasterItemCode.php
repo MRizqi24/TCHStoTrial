@@ -10,7 +10,7 @@ class MasterItemCode extends Model
     use HasFactory;
     protected $table = 'item';
     protected $fillable = [
-        'OPNAME_QTY',
+        // 'OPNAME_QTY',
     ];
     public $timestamps = false;
 }

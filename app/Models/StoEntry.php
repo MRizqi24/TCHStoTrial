@@ -23,6 +23,9 @@ class StoEntry extends Model
         'created_by',
         'created_date',
         'update_date',
+        'gudang',
+        'keterangan',
+        'no_tag',
         'update_by'
     ];
     public $timestamps = false;
