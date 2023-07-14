@@ -464,12 +464,13 @@
                         console.log(data.role);
                         role = data.role;
                         data = data.data;
+                        final_data = role + '_' + data + '_' + 'excel';
                         // alert('ada');
 
                         // Open the PDF in a new tab
-                        var url = "{{ route('print_pdf', ['id' => '#id']) }}";
-                        var url1 = url.replace("#id", data);
-                        window.open('/sto_export/' + role + '_' + data + '_' + 'excel', '_blank');
+                        var url = "{{ route('reportexcel', ['data' => '#id']) }}";
+                        var url = url.replace("#id", final_data);
+                        window.open(url, '_blank');
 
                         // Reload the page
                         // location.reload();
