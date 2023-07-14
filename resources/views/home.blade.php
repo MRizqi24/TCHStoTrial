@@ -311,8 +311,6 @@
                         // work_order_number = work_order_number.replaceAll("/","-")
                         var url = "{{ route('print_pdf', ['id' => '#id']) }}";
                         var url1 = url.replace("#id", data);
-                        console.log(url1);
-                        alert(url1);
 
                         window.open(url1, '_blank');
                     }
